@@ -26,6 +26,7 @@ body {
   font-weight: bold;
 }
 
+/* ---------- NAV LINKS ---------- */
 .nav-links {
   list-style: none;
   display: flex;
@@ -42,6 +43,22 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
   color: #bfa14a;
+}
+
+/* ---------- HAMBURGER ---------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #bfa14a;
+  border-radius: 2px;
+  transition: 0.3s;
 }
 
 /* ---------- HERO SECTION ---------- */
@@ -67,7 +84,7 @@ body {
   color: #ddd;
 }
 
-/* ---------- MAIN CONTENT ---------- */
+/* ---------- CONTENT ---------- */
 .content {
   padding: 120px 20px 60px;
   max-width: 900px;
@@ -78,18 +95,6 @@ body {
   color: #bfa14a;
   font-size: 2rem;
   margin-bottom: 15px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  background: #111;
-  margin: 8px 0;
-  padding: 10px;
-  border-left: 4px solid #bfa14a;
 }
 
 /* ---------- CONTACT FORM ---------- */
@@ -143,25 +148,37 @@ footer {
   }
 }
 
-/* ---------- MOBILE FRIENDLY NAVBAR ---------- */
+/* ---------- MOBILE ---------- */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
+  .hamburger {
+    display: flex;
   }
 
   .nav-links {
     flex-direction: column;
-    background: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
     width: 100%;
-    display: flex; /* Always visible on mobile now */
-    gap: 10px;
-    margin-top: 10px;
+    background: #111;
+    display: none;
+    text-align: center;
+    padding: 20px 0;
   }
 
-  .nav-links a {
-    padding: 10px 0;
-    font-size: 1rem;
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 }
