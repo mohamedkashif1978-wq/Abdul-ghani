@@ -148,12 +148,29 @@ footer {
   }
 }
 
-/* ---------- MOBILE ---------- */
+/* ---------- MOBILE NAV MENU ---------- */
 @media (max-width: 768px) {
+  /* Show hamburger icon */
   .hamburger {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    z-index: 2000; /* make sure it's above other elements */
+    cursor: pointer;
   }
 
+  .hamburger span {
+    width: 28px;
+    height: 3px;
+    background: #bfa14a; /* gold color */
+    border-radius: 2px;
+    transition: 0.3s ease;
+  }
+
+  /* Hide the nav links initially */
   .nav-links {
     flex-direction: column;
     position: absolute;
@@ -164,20 +181,21 @@ footer {
     display: none;
     text-align: center;
     padding: 20px 0;
+    border-top: 1px solid #bfa14a;
   }
 
+  /* Show nav links when active */
   .nav-links.active {
     display: flex;
   }
 
+  /* Animate hamburger into X */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
-
   .hamburger.active span:nth-child(2) {
     opacity: 0;
   }
-
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
