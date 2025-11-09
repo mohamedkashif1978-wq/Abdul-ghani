@@ -7,4 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.opacity = 1;
     }, 200);
   });
+
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
 });
